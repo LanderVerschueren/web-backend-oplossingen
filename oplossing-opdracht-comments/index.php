@@ -1,11 +1,16 @@
+<?php
+	$naam =		"Verschueren";
+	$voornaam = "Lander";
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
         <title>Opdracht Comments</title>
     </head>
     <body>
-        
-        <?php echo 'Lander Verschueren' ?>
+
+    	<p><?= $voornaam ?></p>
         
     </body>
 </html>
