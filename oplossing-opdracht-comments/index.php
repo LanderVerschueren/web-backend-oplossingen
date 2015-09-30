@@ -1,6 +1,8 @@
 <?php
-	$naam =		"Verschueren";
-	$voornaam = "Lander";
+	/*
+	Lander Verschueren
+	lander.verschueren@student.kdg.be
+	*/
 ?>
 
 <!DOCTYPE html>
@@ -10,7 +12,7 @@
     </head>
     <body>
 
-    	<p><?= $voornaam ?></p>
+    	<p><?php echo 'Lander Verschueren' ?></p>
         
     </body>
 </html>
