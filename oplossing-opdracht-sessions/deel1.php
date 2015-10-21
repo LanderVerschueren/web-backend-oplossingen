@@ -18,7 +18,7 @@
     <body>
         <form action="deel2.php" method="POST">
         	<label for="email">e-mail</label><br>
-        	<input type="text" name="email" id="email" value="<?= $email ?>"><br>
+        	<input type="text" name="email" id="email" value="<?= $email ?>" <?php (isset($_GET['focus']) && $_GET == "email" ? 'autofocus' : '' ) ?> > <br>
         	<label for="nickname">nickname</label><br>
         	<input type="text" name="nickname" id="nickname" value="<?= $nickname ?>"><br>
         	<input type="submit" name="submit" value="Volgende">

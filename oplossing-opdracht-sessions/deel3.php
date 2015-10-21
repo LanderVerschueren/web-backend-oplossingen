@@ -16,7 +16,7 @@
         <link rel="author" href="humans.txt">
     </head>
     <body>
-        <label>E-mail: <?= $registrationData[ 'deel1' ][ 'email' ]?> | <a href="deel1.php">Wijzig</a></label><br>
+        <label>E-mail: <?= $registrationData[ 'deel1' ][ 'email' ]?> | <a href="deel1.php?focus=email">Wijzig</a></label><br>
         <label>Nickname: <?= $registrationData[ 'deel1' ][ 'nickname' ]?> | <a href="deel1.php">Wijzig</a></label><br>
         <label>Straat: <?= $registrationData[ 'deel2' ][ 'straat' ]?> | <a href="deel2.php">Wijzig</a></label><br>
         <label>Nummer: <?= $registrationData[ 'deel2' ][ 'nummer' ]?> | <a href="deel2.php">Wijzig</a></label><br>

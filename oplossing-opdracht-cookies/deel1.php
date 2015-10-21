@@ -4,7 +4,7 @@
 	$gebruikersnaam = '';
 
 	$inlezen = file_get_contents("test.txt");
-	$arraySplitBr = explode(PHP_EOL, $inlezen);
+	$arraySplitBr = explode(PHP_EOL, $inlezen); /*PHP_EOL*/
 
 	foreach( $arraySplitBr as $splitBr => $id) {
 		$arraySplitComma[$splitBr] = explode(',', $id);
@@ -18,7 +18,7 @@
 	}
 
 	if( isset( $_POST[ 'submit' ] ) ) {
-		if( in_array( $_POST[ 'gebruikersnaam' ], $arraySplitBr ) && in_array( $_POST[ 'paswoord'], $arraySplitBr ) ) {
+		if( in_array( $_POST[ 'gebruikersnaam' ], $arraySplitComma ) && in_array( $_POST[ 'paswoord'], $arraySplitComma ) ) {
 			/*$isAuthenticated = true;*/
 			if( isset( $_POST[ 'checkbox' ] ) ) {				
 				setcookie('cookie', true, time() + 2592000);

@@ -1,0 +1,9 @@
+<?php foreach($artikels as $artikel): ?>
+	
+	<p><?= $artikel[ "title"]  ?></p>
+	<p><?= $artikel[ "text"]  ?></p>
+	<?php foreach( $artikel[ "tags" ] as $tag): ?>
+		<li><?= $tag ?></li>
+	<?php endforeach ?>
+
+<?php endforeach ?>
