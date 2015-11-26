@@ -1,1 +1,2 @@
-[9:22:09 28/10/2015] - 127.0.0.1 - type:[] 
+[10:49:41 28/10/2015] - 127.0.0.1 - type:[error] De kortingscode is korter of langer dan 8 karakters
+

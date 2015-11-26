@@ -1,6 +1,10 @@
 <html>
 <head>
-	<title></title>
+	<title>
+	<?php foreach ($allCssFiles as $cssFile): ?>
+		<link rel="stylesheet" type="text/css" href="<?php echo $cssFile ?>" >
+	<?php endforeach ?>
+	</title>
 </head>
 <body>
 	<header>This is the Header</header>

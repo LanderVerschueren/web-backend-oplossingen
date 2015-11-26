@@ -1,3 +1,7 @@
 	<footer>This is the Footer</footer>
+
+	<?php foreach ($allJsFiles as $jsFile): ?>
+		<script src="<?php echo $jsFile ?>"></script>
+	<?php endforeach ?>
 </body>
 </html>

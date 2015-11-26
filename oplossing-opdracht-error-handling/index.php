@@ -26,7 +26,7 @@
 		$message = array();
 		$createMessage = false;
 
-		switch ( $e ) {
+		switch ( $e->getMessage() ) {
 			case 'SUBMIT-ERROR':
 				$message[ 'type' ] = 'error';
 				$message[ 'text' ] = 'Er werd met het formulier geknoeid';
@@ -51,8 +51,6 @@
 
 		logToFile( $message );
 	}
-
-	var_dump($message);
 
 	function logToFile( $messageToFile ) 
 	{
@@ -79,6 +77,9 @@
 <body>
 	<form action="#" method="POST">
 		<h2>Geef uw kortingscode op</h2>
+
+
+
 		<p>Kortingscode</p>
 		<input type="text" name="korting" id="korting">
 		<input type="submit" name="submit" value="Verzenden">
