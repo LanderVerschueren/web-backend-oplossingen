@@ -113,6 +113,7 @@
 	</style>
 </head>
 <body>
+	<pre><?php var_dump($_GET) ?></pre>
 	<?php if ( !$nietBestaandArtikel ): ?>
 		<div class="container">
 			<?php foreach ( $artikels as $id => $artikel ): ?>

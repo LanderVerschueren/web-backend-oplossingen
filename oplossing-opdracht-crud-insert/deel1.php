@@ -1,5 +1,7 @@
 <?php
 	$messageContainer = "";
+	$insertMessage = "";
+	$insertSucces = false;
 
 	if( isset( $_POST[ "submit" ] ) ) {
 		try {
@@ -11,12 +13,21 @@
 			$arraykeys = array_keys($_POST);
 
 			$sql = 'INSERT INTO brouwers ( ' . $arraykeys[0] . ', ' . $arraykeys[1] . ', ' . $arraykeys[2] . ', ' . $arraykeys[3] . ', ' . $arraykeys[4] . ') 
-			VALUES ( ' . $_POST["brnaam"] . ', ' . $_POST["adres"] . ', '. $_POST["postcode"] . ', ' . $_POST["gemeente"] . ', ' . $_POST["omzet"] . ' )';
+			VALUES ( "' . $_POST["brnaam"] . '", "' . $_POST["adres"] . '", "'. $_POST["postcode"] . '", "' . $_POST["gemeente"] . '", "' . $_POST["omzet"] . '" )';
 
 			$statement = $db->prepare($sql);
 			$statement->execute();
 
-			var_dump($sql);
+			$last_id = $db->lastInsertId();
+
+			$insertSucces = true;
+
+			if( $insertSucces ) {
+				$insertMessage = "Het unieke nummer van deze brouwerij is " . $last_id . ", waarbij " . $last_id . " de primary key is van de toegevoegde datarij.";
+			}
+			else {
+				$insertMessage = "Er ging iets mis met het toevoegen. Probeer opnieuw.";
+			}
 		}
 
 		catch ( PDOException $e ) {
@@ -45,5 +56,9 @@
 		<input type="text" name="omzet"><br>
 		<input type="submit" name="submit" value="Verzenden">
 	</form>
+
+	<?php if( $insertSucces ): ?>
+		<h3><?= $insertMessage ?></h3>
+	<?php endif ?>
 </body>
 </html>
