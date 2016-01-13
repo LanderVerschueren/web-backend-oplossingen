@@ -2,7 +2,11 @@
 	session_start();
 
 	$emailValid = true;
+	$emailMessage = "";
 	$emailExist = false;
+
+	$passwordValid = true;
+	$passwordMessage = "";
 
 	$emailIsset = false;
 	$email = "";
@@ -27,6 +31,13 @@
 
 	if ( isset( $_SESSION[ "notification" ][ "errorEmail" ] ) && $_SESSION[ "notification" ][ "errorEmail" ] == false ) {
 		$emailValid = false;
+		$emailMessage = $_SESSION[ "notification" ][ "errorEmailMessage" ];
+	}
+
+	if ( isset( $_SESSION[ "notification" ][ "errorPassword" ] ) && $_SESSION[ "notification" ][ "errorPassword" ] == false ) 
+	{
+		$passwordValid = false;
+		$passwordMessage = $_SESSION[ "notification" ][ "errorPasswordMessage" ];
 	}
 
 	if ( isset($_SESSION[ "registrationData" ][ "checkEmailExists" ]) && $_SESSION[ "registrationData" ][ "checkEmailExists" ] == true ) 
@@ -48,12 +59,16 @@
 		.emailError {
 			background-color: red;
 		}
+
+		.error {
+			color: red;
+		}
 	</style>
 </head>
 <body>
 	<pre><?php var_dump($_SESSION) ?></pre>
 	<pre><?php var_dump($emailValid) ?></pre>
-
+	<pre><?php var_dump($_POST) ?></pre>
 
 
 	<div id="container">
@@ -62,8 +77,10 @@
 				<h1>Registreren</h1>
 				<label for="e-mail">E-mail</label><br>
 				<input type="text" name="e-mail" id="e-mail" <?php echo ( $emailIsset ) ? 'value="' . $email . '"' : '' ?> <?php echo ($emailValid) ? '' : 'class="emailError"' ?>><br>
+				<?php echo ( $emailValid ) ? "" : "<label class='error'>" . $emailMessage . "</label><br>" ?>
 				<label for="password">Paswoord</label><br>
-				<input name="password" id="password" <?php echo ($passwordIsset) ? 'type="text" value="' . $password . '"' : 'type="password"' ?>>
+				<?php echo ( $passwordValid ) ? "" : "<label class='error'>" . $passwordMessage . "</label><br>" ?>
+				<input name="password" id="password" type="text" <?php echo ($passwordIsset) ? 'value="' . $password . '"' : '' ?>>
 						
 				<input type="submit" name="submit-generate" id="submit" value="Genereer een paswoord"><br>
 				<input type="submit" name="submit-register" id="submit" value="Registreer">
