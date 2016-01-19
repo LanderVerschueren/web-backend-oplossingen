@@ -74,7 +74,7 @@
                             <?= ($emailValid) ? '' : '<label class="errorText">' . $message . '</label><br>' ?>
 
                             <label for="password">Paswoord</label><br>
-                            <input name="password" id="password" type="text" value="<?= $password ?>" <?= ($passwordFilledIn) ? '' : 'class="error" autofocus' ?>?>
+                            <input name="password" id="password" type="text" value="<?= $password ?>" <?= ($passwordFilledIn) ? '' : 'class="error" autofocus' ?>>
                                     
                             <input type="submit" name="submit-generate" id="submit" value="Genereer een paswoord"><br>
                             <?= ($passwordFilledIn) ? '' : '<label class="errorText">' . $message . '</label><br>' ?>
